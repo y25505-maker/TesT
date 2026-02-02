@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>High & Low</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<script src="main.js"></script>
 <body>
-    <h1>あなたには僕が見えるか</h1>
+
+    <h1>High & Low</h1>
+
+    <div class="main-container">
+        <div class="game-box">
+            <div style="margin-bottom: 10px; color: #666;">山札のこり：<span id="remaining">51</span>枚</div>
+
+            <div class="card-area">
+                <div class="card-container">
+                    <div style="font-size:13px; font-weight:bold;">今のカード</div>
+                    <img id="currentCardImg" class="card-img" src="">
+                </div>
+                <div class="card-container">
+                    <div style="font-size:13px; font-weight:bold;">次のカード</div>
+                    <img id="nextCardImg" class="card-img" src="https://deckofcardsapi.com/static/img/back.png">
+                </div>
+            </div>
+
+            <div id="controls">
+                <button id="btnHigh" class="btn-high" onclick="guess('high')">高い(High) ▲</button>
+                <button id="btnLow" class="btn-low" onclick="guess('low')">低い(Low) ▼</button>
+            </div>
+
+            <div id="msg"></div>
+            <div id="retryArea"></div>
+
+            <div class="status">連続正解数: <span id="score">0</span></div>
+
+            <div class="history-section">
+                <div class="history-title">カードの残り状況</div>
+                <div id="allCardsDisplay"></div>
+            </div>
+            
+            <br>
+            <button onclick="resetGame()" style="font-size: 12px; background: #fff; margin-top: 10px;">最初からやり直す</button>
+        </div>
+
+        <div class="guide-box">
+            <div class="guide-title">強さ</div>
+            <div class="strong">▲ 高い</div>
+            <ul class="guide-list">
+                <li class="guide-item"><span>K</span> <span>13</span></li>
+                <li class="guide-item"><span>Q</span> <span>12</span></li>
+                <li class="guide-item"><span>J</span> <span>11</span></li>
+                <li class="guide-item"><span>10</span></li><li class="guide-item"><span>9</span></li>
+                <li class="guide-item"><span>8</span></li><li class="guide-item"><span>7</span></li>
+                <li class="guide-item"><span>6</span></li><li class="guide-item"><span>5</span></li>
+                <li class="guide-item"><span>4</span></li><li class="guide-item"><span>3</span></li>
+                <li class="guide-item"><span>2</span></li>
+                <li class="guide-item"><span>A</span> <span>1</span></li>
+            </ul>
+            <div class="weak">▼ 低い</div>
+        </div>
+    </div>
 </body>
 </html>
